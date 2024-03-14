@@ -22,10 +22,11 @@ function largestNumber(query: string): string {
 
 // function that takes a query in the form of 
 // What is 9 multiplied by 95?
+// What is 35 multiplied by 18?
 // and returns the product of the two numbers
 function productQuery(query: string): string {
   const x = parseInt(query.split(" ")[2]);
-  const y = parseInt(query.split(" ")[4]);
+  const y = parseInt((query.split(" ")[5]).replace('?', ''));  
   return (x * y).toString();
 }
 
