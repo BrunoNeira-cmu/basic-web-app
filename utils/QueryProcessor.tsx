@@ -6,6 +6,20 @@ function sumQuery(query: string): string {
   return (x + y).toString();
 }
 
+// function that takes a query in the form of
+// "Which of the following numbers is the largest: 96, 42, 50?"
+// and returns the largest number
+function largestNumber(query: string): string {
+  const numbers = query.split(":")[1].split(",");
+  let largest = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (parseInt(numbers[i]) > largest) {
+      largest = parseInt(numbers[i]);
+    }
+  }
+  return largest.toString();
+}
+
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -27,6 +41,11 @@ export default function QueryProcessor(query: string): string {
   else if (query.includes("plus")) {
     return (
       sumQuery(query)
+    );
+  }
+  else if (query.includes("following numbers is the largest")) {
+    return (
+      largestNumber(query)
     );
   }
 
