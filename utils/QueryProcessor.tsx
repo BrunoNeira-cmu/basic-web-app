@@ -11,6 +11,19 @@ function sumQueryMultiple(query: string): string {
 }
 
 // function that takes a query in the form of
+// What is 76 minus 99 minus 123?
+// and returns the difference of the numbers
+function differenceQuery(query: string): string {
+  const numbers = query.split(" ").slice(2);
+  let difference = parseInt(numbers[0]);
+  for (let i = 1; i < numbers.length; i++) {
+    difference -= parseInt(numbers[i]);
+  }
+  return difference.toString();
+}
+
+
+// function that takes a query in the form of
 // What is 49 to the power of 29?
 // and returns the result of the number to the power of the exponent
 function powerQuery(query: string): string {
@@ -100,6 +113,11 @@ export default function QueryProcessor(query: string): string {
   else if (query.includes("plus")) {
     return (
       sumQueryMultiple(query)
+    );
+  }
+  else if (query.includes("minus")) {
+    return (
+      differenceQuery(query)
     );
   }
   else if (query.includes("following numbers is the largest")) {
