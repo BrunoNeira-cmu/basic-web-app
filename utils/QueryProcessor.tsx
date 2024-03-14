@@ -19,7 +19,9 @@ function differenceQuery(query: string): string {
   const numbers = query.split(" ").slice(2);
   let difference = parseInt(numbers[0]);
   for (let i = 1; i < numbers.length; i++) {
-    difference -= parseInt(numbers[i]);
+    if (numbers[i] != "minus"){
+      difference -= parseInt(numbers[i]);
+    }
   }
   return difference.toString();
 }
