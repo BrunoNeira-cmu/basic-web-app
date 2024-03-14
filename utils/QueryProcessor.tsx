@@ -44,6 +44,28 @@ function squareAndCubeQuery(query: string): string {
   return "None";
 }
 
+// function that takes in a query in the form of
+// Which of the following numbers are primes: 89, 37, 16, 62, 47?
+// and returns the prime numbers
+function primeQuery(query: string): string {
+  const numbers = query.split(":")[1].split(",");
+  let primes = [];
+  for (let i = 0; i < numbers.length; i++) {
+    const number = parseInt(numbers[i]);
+    let isPrime = true;
+    for (let j = 2; j < number; j++) {
+      if (number % j === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+    if (isPrime) {
+      primes.push(number);
+    }
+  }
+  return primes.join(", ");
+}
+
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -80,6 +102,11 @@ export default function QueryProcessor(query: string): string {
   else if (query.includes("both a square and a cube")) {
     return (
       squareAndCubeQuery(query)
+    );
+  }
+  else if (query.includes("prime")) {
+    return (
+      primeQuery(query)
     );
   }
 
