@@ -29,6 +29,20 @@ function productQuery(query: string): string {
   return (x * y).toString();
 }
 
+// function that takes a query in the form of
+// Which of the following numbers is both a square and a cube: 3403, 1000, 3718, 4056, 4058, 961, 1?
+// and returns the number that is both a square and a cube
+function squareAndCubeQuery(query: string): string {
+  const numbers = query.split(":")[1].split(",");
+  for (let i = 0; i < numbers.length; i++) {
+    const number = parseInt(numbers[i]);
+    if (Math.sqrt(number) % 1 === 0 && Math.cbrt(number) % 1 === 0) {
+      return number.toString();
+    }
+  }
+  return "None";
+}
+
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -60,6 +74,11 @@ export default function QueryProcessor(query: string): string {
   else if (query.includes("multiplied")) {
     return (
       productQuery(query)
+    );
+  }
+  else if (query.includes("both a square and a cube")) {
+    return (
+      squareAndCubeQuery(query)
     );
   }
 
