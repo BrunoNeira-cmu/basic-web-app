@@ -1,3 +1,11 @@
+// function that passes a query in the form of What is x plus y?
+// and returns the sum of x and y
+function sumQuery(query: string): string {
+  const x = parseInt(query.split(" ")[2]);
+  const y = parseInt(query.split(" ")[4]);
+  return (x + y).toString();
+}
+
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -16,24 +24,9 @@ export default function QueryProcessor(query: string): string {
       "bn"
     );
   }
-  else if (query.includes("What is 56 plus 33?")) {
+  else if (query.includes("plus")) {
     return (
-      "89"
-    );
-  }
-  else if (query.includes("What is 60 plus 17?")) {
-    return (
-      "77"
-    );
-  }
-  else if (query.includes("Which of the following numbers is the largest: 77, 44, 70?")) {
-    return (
-      "77"
-    );
-  }
-  else if (query.includes("Which of the following numbers is the largest: 93, 59, 39?")) {
-    return (
-      "93"
+      sumQuery(query)
     );
   }
 
