@@ -5,7 +5,9 @@ function sumQueryMultiple(query: string): string {
   const numbers = query.split(" ").slice(2);
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) {
-    sum += parseInt(numbers[i]);
+    if (numbers[i] != "plus"){
+      sum += parseInt(numbers[i]);
+    }
   }
   return sum.toString();
 }
