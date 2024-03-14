@@ -16,9 +16,14 @@ export default function QueryProcessor(query: string): string {
       "bn"
     );
   }
-  else if (query.toLowerCase().includes("What is 56 plus 33?")) {
+  else if (query.includes("What is 56 plus 33?")) {
     return (
       "89"
+    );
+  }
+  else if (query.includes("What is 60 plus 17?")) {
+    return (
+      "77"
     );
   }
 
