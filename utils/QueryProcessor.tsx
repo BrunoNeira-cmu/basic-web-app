@@ -11,6 +11,11 @@ export default function QueryProcessor(query: string): string {
       "I cant tell, but you can look up your name in the CMU student directory "
     );
   }
+  else if (query.toLowerCase().includes("What is your name?")) {
+    return (
+      "Bruno"
+    );
+  }
 
   return "";
 }
