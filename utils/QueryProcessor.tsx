@@ -11,6 +11,15 @@ function sumQueryMultiple(query: string): string {
 }
 
 // function that takes a query in the form of
+// What is 49 to the power of 29?
+// and returns the result of the number to the power of the exponent
+function powerQuery(query: string): string {
+  const x = parseInt(query.split(" ")[2]);
+  const y = parseInt((query.split(" ")[5]).replace('?', ''));
+  return (Math.pow(x, y)).toString();
+}
+
+// function that takes a query in the form of
 // "Which of the following numbers is the largest: 96, 42, 50?"
 // and returns the largest number
 function largestNumber(query: string): string {
@@ -111,6 +120,11 @@ export default function QueryProcessor(query: string): string {
   else if (query.includes("prime")) {
     return (
       primeQuery(query)
+    );
+  }
+  else if (query.includes("power")) {
+    return (
+      powerQuery(query)
     );
   }
 
