@@ -20,6 +20,15 @@ function largestNumber(query: string): string {
   return largest.toString();
 }
 
+// function that takes a query in the form of 
+// What is 9 multiplied by 95?
+// and returns the product of the two numbers
+function productQuery(query: string): string {
+  const x = parseInt(query.split(" ")[2]);
+  const y = parseInt(query.split(" ")[4]);
+  return (x * y).toString();
+}
+
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -46,6 +55,11 @@ export default function QueryProcessor(query: string): string {
   else if (query.includes("following numbers is the largest")) {
     return (
       largestNumber(query)
+    );
+  }
+  else if (query.includes("multiplied")) {
+    return (
+      productQuery(query)
     );
   }
 
